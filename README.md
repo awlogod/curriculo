@@ -74,10 +74,45 @@ O site é totalmente responsivo e se adapta a:
 - Tablets (480px - 768px)
 - Desktops (> 768px)
 
+## 🐙 GitHub
+
+### Criar repositório no GitHub
+
+1. **Crie o repositório no GitHub:**
+   - Acesse [GitHub.com](https://github.com) e faça login
+   - Clique em **"+"** > **"New repository"**
+   - Nome: `curriculo` (ou o que preferir)
+   - Escolha Public ou Private
+   - **NÃO** marque "Initialize with README"
+   - Clique em **"Create repository"**
+
+2. **Conecte o repositório local:**
+   ```bash
+   ./connect-github.sh SEU_USUARIO_GITHUB
+   ```
+   
+   Ou manualmente:
+   ```bash
+   git remote add origin https://github.com/SEU_USUARIO/curriculo.git
+   git push -u origin main
+   ```
+
+### Habilitar GitHub Pages
+
+Para publicar seu site gratuitamente:
+
+1. Vá em **Settings** > **Pages** no repositório
+2. Em **Source**, selecione:
+   - Branch: `main`
+   - Folder: `/ (root)`
+3. Clique em **Save**
+4. Aguarde alguns minutos
+5. Seu site estará em: `https://SEU_USUARIO.github.io/curriculo`
+
 ## 🌐 Deploy
 
 Você pode fazer deploy deste site em:
-- GitHub Pages
+- **GitHub Pages** (gratuito, veja instruções acima)
 - Netlify
 - Vercel
 - Qualquer serviço de hospedagem estática
