@@ -269,6 +269,13 @@ body {
     margin-bottom: 0;
 }
 
+.education-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+}
+
 .degree {
     font-size: 1.25rem;
     font-weight: 600;
@@ -281,6 +288,131 @@ body {
     color: var(--primary-color);
     font-weight: 500;
     margin-bottom: 0.25rem;
+}
+
+.certificate-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: var(--transition);
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.certificate-btn:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.certificate-btn svg {
+    flex-shrink: 0;
+}
+
+/* Modal de Certificado */
+.certificate-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1000;
+    animation: fadeIn 0.3s ease;
+}
+
+.certificate-modal.active {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+}
+
+.modal-content {
+    position: relative;
+    background: var(--bg-primary);
+    border-radius: var(--radius);
+    padding: 2rem;
+    max-width: 90vw;
+    max-height: 90vh;
+    overflow: auto;
+    box-shadow: var(--shadow-lg);
+    z-index: 1001;
+    animation: slideUp 0.3s ease;
+}
+
+.modal-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(0, 0, 0, 0.1);
+    border: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition);
+    color: var(--text-primary);
+    z-index: 1002;
+}
+
+.modal-close:hover {
+    background: rgba(0, 0, 0, 0.2);
+    transform: rotate(90deg);
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+    text-align: center;
+    padding-right: 3rem;
+}
+
+.modal-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+}
+
+.modal-image {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: var(--shadow-md);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 /* Skills */
@@ -424,6 +556,28 @@ body {
         align-items: flex-start;
         gap: 0.5rem;
     }
+
+    .education-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .certificate-btn {
+        width: 100%;
+        justify-content: center;
+    }
+
+    .modal-content {
+        padding: 1.5rem;
+        max-width: 95vw;
+        max-height: 95vh;
+    }
+
+    .modal-title {
+        font-size: 1.25rem;
+        padding-right: 0;
+    }
 }
 
 @media (max-width: 480px) {
@@ -437,6 +591,19 @@ body {
 
     .section-title {
         font-size: 1.5rem;
+    }
+
+    .certificate-btn span {
+        font-size: 0.85rem;
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+
+    .modal-title {
+        font-size: 1.1rem;
+        margin-bottom: 1rem;
     }
 }
 

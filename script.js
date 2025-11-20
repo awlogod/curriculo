@@ -39,5 +39,62 @@ document.addEventListener('DOMContentLoaded', function() {
             this.style.transform = 'translateY(0) scale(1)';
         });
     });
+
+    // Sistema de visualização de certificados
+    const modal = document.getElementById('certificate-modal');
+    const modalImage = document.getElementById('modal-image');
+    const modalTitle = document.getElementById('modal-title');
+    const modalClose = document.querySelector('.modal-close');
+    const modalOverlay = document.querySelector('.modal-overlay');
+    const certificateButtons = document.querySelectorAll('.certificate-btn');
+
+    // Função para abrir o modal
+    function openModal(imageSrc, title) {
+        modalImage.src = imageSrc;
+        modalTitle.textContent = title;
+        modal.classList.add('active');
+        document.body.style.overflow = 'hidden'; // Prevenir scroll do body
+    }
+
+    // Função para fechar o modal
+    function closeModal() {
+        modal.classList.remove('active');
+        document.body.style.overflow = ''; // Restaurar scroll do body
+    }
+
+    // Adicionar event listeners aos botões de certificado
+    certificateButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            const imageSrc = this.getAttribute('data-certificate');
+            const title = this.getAttribute('data-title');
+            if (imageSrc && title) {
+                openModal(imageSrc, title);
+            }
+        });
+    });
+
+    // Fechar modal ao clicar no botão de fechar
+    if (modalClose) {
+        modalClose.addEventListener('click', closeModal);
+    }
+
+    // Fechar modal ao clicar no overlay
+    if (modalOverlay) {
+        modalOverlay.addEventListener('click', closeModal);
+    }
+
+    // Fechar modal ao pressionar ESC
+    document.addEventListener('keydown', function(event) {
+        if (event.key === 'Escape' && modal.classList.contains('active')) {
+            closeModal();
+        }
+    });
+
+    // Prevenir fechamento ao clicar na imagem
+    if (modalImage) {
+        modalImage.addEventListener('click', function(event) {
+            event.stopPropagation();
+        });
+    }
 });
 

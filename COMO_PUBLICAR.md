@@ -116,3 +116,4 @@ git push origin main
 
 O site será atualizado automaticamente em alguns minutos (GitHub Pages) ou segundos (Netlify/Vercel).
 
+
