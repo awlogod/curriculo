@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Currículo - André Wilckay Lage Oliveira</title>
+    <script>
+        // Auto-gerar PDF quando a página carregar
+        window.addEventListener('load', function() {
+            // Adicionar botão de download PDF
+            const downloadBtn = document.createElement('button');
+            downloadBtn.textContent = '📥 Baixar como PDF';
+            downloadBtn.style.cssText = 'position: fixed; top: 20px; right: 20px; padding: 1rem 2rem; background: #06b6d4; color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: 600; z-index: 1000; box-shadow: 0 4px 12px rgba(6, 182, 212, 0.4); transition: all 0.3s ease;';
+            downloadBtn.onmouseover = function() {
+                this.style.background = '#22d3ee';
+                this.style.transform = 'translateY(-2px)';
+            };
+            downloadBtn.onmouseout = function() {
+                this.style.background = '#06b6d4';
+                this.style.transform = 'translateY(0)';
+            };
+            downloadBtn.onclick = function() {
+                window.print();
+            };
+            document.body.appendChild(downloadBtn);
+        });
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #0f172a;
+            background: #ffffff;
+            padding: 2rem;
+        }
+
+        .curriculo-container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 3rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 3px solid #06b6d4;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            color: #0f172a;
+            margin-bottom: 0.5rem;
+            font-weight: 800;
+        }
+
+        .header .title {
+            font-size: 1.25rem;
+            color: #06b6d4;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .header .info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            font-size: 0.95rem;
+            color: #475569;
+        }
+
+        .section {
+            margin-bottom: 2.5rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: #06b6d4;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #06b6d4;
+        }
+
+        .about-content {
+            text-align: justify;
+            color: #475569;
+            line-height: 1.8;
+        }
+
+        .experience-item,
+        .education-item {
+            margin-bottom: 1.5rem;
+            padding-left: 1rem;
+            border-left: 3px solid #06b6d4;
+        }
+
+        .experience-item h3,
+        .education-item h3 {
+            font-size: 1.2rem;
+            color: #0f172a;
+            margin-bottom: 0.25rem;
+        }
+
+        .experience-item .company,
+        .education-item .institution {
+            color: #06b6d4;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item .period,
+        .education-item .period {
+            color: #64748b;
+            font-size: 0.9rem;
+            font-style: italic;
+            margin-bottom: 0.5rem;
+        }
+
+        .experience-item ul {
+            margin-left: 1.5rem;
+            color: #475569;
+        }
+
+        .experience-item li {
+            margin-bottom: 0.25rem;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .skill-category {
+            margin-bottom: 1.5rem;
+        }
+
+        .skill-category h4 {
+            color: #0f172a;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .skill-tag {
+            background: #f1f5f9;
+            color: #06b6d4;
+            padding: 0.4rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            border: 1px solid #e2e8f0;
+        }
+
+        .languages-list {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .language-item {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .language-name {
+            font-weight: 600;
+            color: #0f172a;
+        }
+
+        .language-level {
+            color: #06b6d4;
+            font-size: 0.9rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #475569;
+            font-size: 0.95rem;
+        }
+
+        @media print {
+            body {
+                padding: 0;
+            }
+
+            .curriculo-container {
+                box-shadow: none;
+                padding: 2rem;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="curriculo-container">
+        <div class="header">
+            <h1>André Wilckay Lage Oliveira</h1>
+            <p class="title">Desenvolvedor Full-Stack & Sócio-Fundador na Nsend</p>
+            <div class="info">
+                <span>📍 Jundiaí, SP</span>
+                <span>📧 andrewilckaylageoliveira@gmail.com</span>
+                <span>📱 (11) 91062-1642</span>
+            </div>
+            <div class="contact-info">
+                <a href="https://www.linkedin.com/in/andr%C3%A9-wilckay-lage-oliveira-200874383/" class="contact-item">LinkedIn</a>
+                <a href="https://github.com/awlogod" class="contact-item">GitHub</a>
+                <a href="https://awlogod.github.io/curriculo/" class="contact-item">Portfólio</a>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Sobre</h2>
+            <div class="about-content">
+                <p>
+                    Desenvolvedor Full-Stack apaixonado por tecnologia e inovação. Atualmente cursando Engenharia de Computação na PUC-Campinas e atuando como Sócio-Fundador na Nsend, onde desenvolvo soluções completas de chatbots, automação e CRM.
+                </p>
+                <p style="margin-top: 1rem;">
+                    Especializado em desenvolvimento frontend e backend, com foco em criar experiências digitais impactantes e sistemas escaláveis. Sempre em busca de novos desafios e oportunidades de aprendizado.
+                </p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Experiência Profissional</h2>
+            <div class="experience-item">
+                <h3>Sócio-Fundador & Desenvolvedor Full-Stack</h3>
+                <p class="company">Nsend</p>
+                <p class="period">2024 - Atual</p>
+                <ul>
+                    <li>Desenvolvimento de chatbots inteligentes para WhatsApp e Instagram</li>
+                    <li>Arquitetura e implementação de soluções backend escaláveis com Node.js</li>
+                    <li>Criação de sistemas de automação e CRM</li>
+                    <li>Desenvolvimento de APIs RESTful e integrações</li>
+                    <li>Gestão de projetos e liderança técnica</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Formação Acadêmica</h2>
+            <div class="education-item">
+                <h3>Engenharia de Computação</h3>
+                <p class="institution">Pontifícia Universidade Católica de Campinas (PUC-Campinas)</p>
+                <p class="period">Cursando</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Habilidades Técnicas</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h4>Frontend</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">React</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Backend</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Java</span>
+                        <span class="skill-tag">C</span>
+                        <span class="skill-tag">C++</span>
+                        <span class="skill-tag">C#</span>
+                        <span class="skill-tag">APIs</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h4>Ferramentas</h4>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git & GitHub</span>
+                        <span class="skill-tag">JWT</span>
+                        <span class="skill-tag">Chatbots</span>
+                        <span class="skill-tag">Blip</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Idiomas</h2>
+            <div class="languages-list">
+                <div class="language-item">
+                    <span class="language-name">Português</span>
+                    <span class="language-level">(Nativo)</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Inglês</span>
+                    <span class="language-level">(Fluente)</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Francês</span>
+                    <span class="language-level">(Iniciante)</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Espanhol</span>
+                    <span class="language-level">(Iniciante)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2 class="section-title">Cursos e Certificações</h2>
+            <div class="education-item">
+                <h3>Curso Completo de JavaScript</h3>
+            </div>
+            <div class="education-item">
+                <h3>Curso Completo de HTML e CSS</h3>
+                <p class="institution">Alura</p>
+            </div>
+            <div class="education-item">
+                <h3>Curso Completo de Java</h3>
+            </div>
+            <div class="education-item">
+                <h3>Curso Completo de TypeScript</h3>
+            </div>
+            <div class="education-item">
+                <h3>React</h3>
+            </div>
+            <div class="education-item">
+                <h3>Curso Completo de APIs</h3>
+                <p class="institution">Alura</p>
+            </div>
+            <div class="education-item">
+                <h3>Curso Completo de C</h3>
+                <p class="institution">PUC-Campinas</p>
+            </div>
+            <div class="education-item">
+                <h3>Curso Completo de C++</h3>
+                <p class="institution">PUC-Campinas</p>
+            </div>
+            <div class="education-item">
+                <h3>Curso Completo de C#</h3>
+                <p class="institution">Alura</p>
+            </div>
+            <div class="education-item">
+                <h3>Curso Completo de Node.js</h3>
+                <p class="institution">Curso em Vídeo</p>
+            </div>
+            <div class="education-item">
+                <h3>Curso Completo de GitHub</h3>
+                <p class="institution">Alura</p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+

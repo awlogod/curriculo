@@ -3,375 +3,1093 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Currículo profissional - André Wilckay Lage Oliveira | Desenvolvedor Full-Stack">
-    <title>Currículo - André Wilckay Lage Oliveira</title>
+    <meta name="description" content="Portfólio profissional - André Wilckay Lage Oliveira | Desenvolvedor Full-Stack & Empreendedor">
+    <title>André Wilckay - Desenvolvedor Full-Stack</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-    <div class="container">
-        <!-- Header -->
-        <header class="header">
-            <div class="profile-section">
-                <div class="profile-image">
-                    <img src="images/foto_andre.jpg" alt="André Wilckay Lage Oliveira" class="profile-photo">
+    <!-- Indicador de Progresso de Scroll -->
+    <div class="scroll-progress" id="scroll-progress"></div>
+
+    <!-- Navegação -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="#inicio" class="logo-link">
+                    <svg class="logo-svg" width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="logoGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#06b6d4" />
+                                <stop offset="100%" stop-color="#22d3ee" />
+                            </linearGradient>
+                            <filter id="glow">
+                                <feGaussianBlur stdDeviation="1.5" result="coloredBlur"/>
+                                <feMerge>
+                                    <feMergeNode in="coloredBlur"/>
+                                    <feMergeNode in="SourceGraphic"/>
+                                </feMerge>
+                            </filter>
+                        </defs>
+                        <!-- Letra A -->
+                        <path d="M10 38 L16 18 L18 18 L24 38 L21 38 L19.5 32 L14.5 32 L13 38 Z M17 28 L20 28 L18.5 22.5 Z" 
+                              fill="url(#logoGradient)" 
+                              filter="url(#glow)"
+                              stroke="url(#logoGradient)" 
+                              stroke-width="0.3"/>
+                        <!-- Letra W -->
+                        <path d="M26 18 L28.5 18 L30 28 L31.5 18 L34 18 L35.5 28 L37 18 L39.5 18 L37.5 38 L35 38 L33.5 28 L32 38 L29.5 38 L28 28 L26.5 38 L24 38 Z" 
+                              fill="url(#logoGradient)" 
+                              filter="url(#glow)"
+                              stroke="url(#logoGradient)" 
+                              stroke-width="0.3"/>
+                    </svg>
+                </a>
+            </div>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#inicio" class="nav-link">Início</a></li>
+                <li><a href="#sobre" class="nav-link">Sobre</a></li>
+                <li><a href="#experiencia" class="nav-link">Experiência</a></li>
+                <li><a href="#habilidades" class="nav-link">Habilidades</a></li>
+                <li><a href="#projetos" class="nav-link">Projetos</a></li>
+                <li><a href="#diplomas" class="nav-link">Diplomas</a></li>
+                <li><a href="#contato" class="nav-link">Contato</a></li>
+            </ul>
+            <div class="nav-actions">
+                <button class="theme-toggle" id="theme-toggle" aria-label="Alternar tema">
+                    <svg class="theme-icon sun-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="5"/>
+                        <line x1="12" y1="1" x2="12" y2="3"/>
+                        <line x1="12" y1="21" x2="12" y2="23"/>
+                        <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                        <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                        <line x1="1" y1="12" x2="3" y2="12"/>
+                        <line x1="21" y1="12" x2="23" y2="12"/>
+                        <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                        <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+                    </svg>
+                    <svg class="theme-icon moon-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+                    </svg>
+                </button>
+                <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Botão Voltar ao Topo -->
+    <button class="back-to-top" id="back-to-top" aria-label="Voltar ao topo">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="18 15 12 9 6 15"/>
+        </svg>
+    </button>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <p class="hero-greeting">OLÁ, EU SOU</p>
+                <h1 class="hero-name">André Wilckay<br>Lage Oliveira</h1>
+                <p class="hero-description">
+                    Eu crio soluções digitais inovadoras e escaláveis. Unindo um design atraente do frontend, 
+                    a robustez do backend e a automação de chatbots inteligentes.
+                </p>
+                <div class="hero-badges">
+                    <span class="badge">Frontend</span>
+                    <span class="badge">Backend</span>
+                    <span class="badge">Chatbots</span>
+                    <span class="badge">APIs</span>
                 </div>
-                <div class="profile-info">
-                    <h1 class="name">André Wilckay Lage Oliveira</h1>
-                    <p class="title">Desenvolvedor Full-Stack & Sócio-Fundador na Nsend</p>
-                    <p class="location">📍 Belo Horizonte, MG - Brasil | 19 anos</p>
+                <div class="hero-actions">
+                    <a href="#contato" class="btn btn-primary">Vamos Conversar</a>
+                    <a href="https://github.com/awlogod" target="_blank" class="btn btn-secondary">Ver GitHub</a>
+                    <a href="curriculo.html" target="_blank" class="btn btn-download" onclick="window.open('curriculo.html', '_blank'); return false;">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        Baixar CV
+                    </a>
+                </div>
+                <a href="https://github.com/awlogod" target="_blank" class="hero-github-link">Veja meu GitHub</a>
+            </div>
+            
+            <!-- Card ATUALMENTE -->
+            <div class="hero-current-card">
+                <p class="current-label">ATUALMENTE</p>
+                <h2 class="current-title">Criando Experiências Impactantes</h2>
+                <p class="current-subtitle">Focado em código de alta qualidade e inovação</p>
+                <ul class="current-list">
+                    <li>Desenvolvendo chatbots inteligentes para WhatsApp e Instagram</li>
+                    <li>Arquitetando soluções backend escaláveis com Node.js</li>
+                    <li>Construindo sistemas que otimizam processos e melhoram experiências</li>
+                </ul>
+                <div class="current-stats">
+                    <div class="current-stat-box">
+                        <div class="current-stat-number" data-target="19">0</div>
+                        <div class="current-stat-label">ANOS</div>
+                    </div>
+                    <div class="current-stat-box">
+                        <div class="current-stat-number" data-target="11">0</div>
+                        <div class="current-stat-label">CURSOS</div>
+                    </div>
                 </div>
             </div>
-            <div class="contact-info">
-                <a href="mailto:andrewilckaylageoliveira@gmail.com" class="contact-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                        <polyline points="22,6 12,13 2,6"/>
+        </div>
+        
+        <!-- Linha decorativa interativa -->
+        <svg class="hero-connector" viewBox="0 0 1200 600" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                    <stop offset="0%" style="stop-color:#06b6d4;stop-opacity:0.4" />
+                    <stop offset="50%" style="stop-color:#22d3ee;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:#06b6d4;stop-opacity:0.4" />
+                </linearGradient>
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="2" result="coloredBlur"/>
+                    <feMerge>
+                        <feMergeNode in="coloredBlur"/>
+                        <feMergeNode in="SourceGraphic"/>
+                    </feMerge>
+                </filter>
+            </defs>
+            <!-- Caminho de fundo (traço completo) -->
+            <path class="connector-path-bg" 
+                  d="M 100 100 Q 300 200, 400 300 T 800 400 Q 1000 450, 1100 500" 
+                  fill="none" 
+                  stroke="rgba(6, 182, 212, 0.15)" 
+                  stroke-width="3" 
+                  stroke-dasharray="10 10"/>
+            <!-- Caminho animado (desenho progressivo) -->
+            <path class="connector-path" 
+                  d="M 100 100 Q 300 200, 400 300 T 800 400 Q 1000 450, 1100 500" 
+                  fill="none" 
+                  stroke="url(#pathGradient)" 
+                  stroke-width="2.5" 
+                  stroke-dasharray="10 10"
+                  filter="url(#glow)"/>
+            <!-- Pontos animados ao longo do caminho -->
+            <circle class="connector-dot dot-1" r="4" fill="#06b6d4" opacity="0.9">
+                <animateMotion dur="3s" repeatCount="indefinite">
+                    <mpath href="#connectorMotionPath"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0.6;1;0.6" dur="2s" repeatCount="indefinite"/>
+            </circle>
+            <circle class="connector-dot dot-2" r="3" fill="#22d3ee" opacity="0.7">
+                <animateMotion dur="4s" repeatCount="indefinite" begin="1.5s">
+                    <mpath href="#connectorMotionPath"/>
+                </animateMotion>
+                <animate attributeName="opacity" values="0.5;1;0.5" dur="2.5s" repeatCount="indefinite"/>
+            </circle>
+            <!-- Caminho de movimento para os pontos -->
+            <path id="connectorMotionPath" 
+                  d="M 100 100 Q 300 200, 400 300 T 800 400 Q 1000 450, 1100 500" 
+                  fill="none" 
+                  stroke="none"/>
+        </svg>
+    </section>
+
+    <!-- Sobre -->
+    <section id="sobre" class="section about">
+        <div class="container">
+            <div class="about-header">
+                <p class="about-label">SOBRE</p>
+                <div class="about-label-line"></div>
+                <h2 class="about-title">Quem Sou Eu</h2>
+                <p class="about-subtitle">
+                    Eu sou um desenvolvedor de software sempre buscando excelência em meus trabalhos e projetos pessoais.
+                </p>
+            </div>
+            
+            <div class="about-main-content">
+                <div class="about-left">
+                    <div class="about-photo-container">
+                        <img src="images/foto_andre.jpg" alt="André Wilckay" class="about-photo">
+                    </div>
+                </div>
+                
+                <div class="about-right">
+                    <div class="about-text-content">
+                        <p>
+                            Com uma paixão por tecnologia desde jovem, comecei minha jornada no desenvolvimento de software há vários anos. 
+                            Ao longo do tempo, adquiri experiência em diversas áreas, incluindo front-end, back-end, chatbots, APIs e DevOps.
+                        </p>
+                        <p>
+                            Atualmente sou sócio-fundador e desenvolvedor na <strong>Nsend</strong>, onde atuo no desenvolvimento 
+                            de chatbots para WhatsApp, Instagram e outras plataformas de mensageria. Estudante de Engenharia de 
+                            Computação na PUC-Campinas, estou sempre em busca de novos desafios e oportunidades para aprender e 
+                            crescer como profissional. Se você está procurando um desenvolvedor dedicado e apaixonado para fazer 
+                            parte do seu próximo projeto, adoraria conversar!
+                        </p>
+                    </div>
+                    
+                    <div class="about-skills-grid">
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                </svg>
+                            </div>
+                            <h4>Experiência</h4>
+                            <p>Experiência em diversas áreas como dev de software.</p>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"/>
+                                </svg>
+                            </div>
+                            <h4>Aprendizado</h4>
+                            <p>Adaptação eficiente a novas tecnologias e metodologias.</p>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                                </svg>
+                            </div>
+                            <h4>Autonomia</h4>
+                            <p>Capacidade de trabalhar de forma independente e tomar decisões.</p>
+                        </div>
+                        
+                        <div class="skill-card">
+                            <div class="skill-icon">
+                                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <line x1="18" y1="20" x2="18" y2="10"/>
+                                    <line x1="12" y1="20" x2="12" y2="4"/>
+                                    <line x1="6" y1="20" x2="6" y2="14"/>
+                                </svg>
+                            </div>
+                            <h4>Eficiência</h4>
+                            <p>Otimização de processos e foco em resultados.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experiência -->
+    <section id="experiencia" class="section experience">
+        <div class="container">
+            <div class="experience-timeline-container">
+                <div class="experience-timeline-line"></div>
+                <div class="experience-timeline-items">
+                    <div class="experience-card current">
+                        <p class="experience-period">2024 - ATUAL</p>
+                        <h3 class="experience-role">Desenvolvedor & Sócio-Fundador</h3>
+                        <p class="experience-description">
+                            Atualmente, atuo como Fullstack e DevOps na <strong>Nsend</strong>, onde desenvolvo 
+                            chatbots inteligentes para WhatsApp, Instagram e outras plataformas de mensageria. 
+                            Lidero projetos de inovação e crio sistemas escaláveis que otimizam processos e melhoram 
+                            experiências dos clientes.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Habilidades -->
+    <section id="habilidades" class="section skills">
+        <div class="container">
+            <div class="skills-header">
+                <p class="skills-label">HABILIDADES</p>
+                <div class="skills-label-line"></div>
+                <h2 class="skills-title">Minha Especialização</h2>
+                <p class="skills-subtitle">
+                    Aqui estão algumas das habilidades e tecnologias em que sou especialista.
+                </p>
+            </div>
+
+            <!-- Barra de Pesquisa -->
+            <div class="skills-search">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <circle cx="11" cy="11" r="8"/>
+                    <path d="m21 21-4.35-4.35"/>
+                </svg>
+                <input type="text" id="skills-search-input" placeholder="Pesquisar por nome ou tecnologia..." class="search-input">
+            </div>
+
+            <!-- Filtros por Categoria -->
+            <div class="skills-filters">
+                <button class="filter-btn active" data-filter="all">Todos</button>
+                <button class="filter-btn" data-filter="frontend">Frontend</button>
+                <button class="filter-btn" data-filter="backend">Backend</button>
+                <button class="filter-btn" data-filter="tools">Ferramentas</button>
+                <button class="filter-btn" data-filter="soft">Soft Skills</button>
+            </div>
+
+            <!-- Cards de Tecnologias -->
+            <div class="skills-cards-container">
+                <div class="skills-cards-row" id="skills-cards-row">
+                    <!-- JavaScript -->
+                    <div class="skill-tech-card" data-skill="javascript" data-category="frontend">
+                        <div class="tech-logo">JS</div>
+                        <span class="tech-name">JavaScript</span>
+                    </div>
+                    <!-- TypeScript -->
+                    <div class="skill-tech-card" data-skill="typescript" data-category="frontend">
+                        <div class="tech-logo">TS</div>
+                        <span class="tech-name">TypeScript</span>
+                    </div>
+                    <!-- React -->
+                    <div class="skill-tech-card" data-skill="react" data-category="frontend">
+                        <div class="tech-logo">⚛</div>
+                        <span class="tech-name">React</span>
+                    </div>
+                    <!-- Node.js -->
+                    <div class="skill-tech-card" data-skill="nodejs" data-category="backend">
+                        <div class="tech-logo">N</div>
+                        <span class="tech-name">Node.js</span>
+                    </div>
+                    <!-- Java -->
+                    <div class="skill-tech-card" data-skill="java" data-category="backend">
+                        <div class="tech-logo">J</div>
+                        <span class="tech-name">Java</span>
+                    </div>
+                    <!-- HTML/CSS -->
+                    <div class="skill-tech-card" data-skill="htmlcss" data-category="frontend">
+                        <div class="tech-logo">◉</div>
+                        <span class="tech-name">HTML/CSS</span>
+                    </div>
+                    <!-- Git/GitHub -->
+                    <div class="skill-tech-card" data-skill="git" data-category="tools">
+                        <div class="tech-logo">G</div>
+                        <span class="tech-name">Git & GitHub</span>
+                    </div>
+                    <!-- APIs -->
+                    <div class="skill-tech-card" data-skill="apis" data-category="backend">
+                        <div class="tech-logo">API</div>
+                        <span class="tech-name">APIs</span>
+                    </div>
+                    <!-- C -->
+                    <div class="skill-tech-card hidden" data-skill="c" data-category="backend">
+                        <div class="tech-logo">C</div>
+                        <span class="tech-name">C</span>
+                    </div>
+                    <!-- C++ -->
+                    <div class="skill-tech-card hidden" data-skill="cpp" data-category="backend">
+                        <div class="tech-logo">C++</div>
+                        <span class="tech-name">C++</span>
+                    </div>
+                    <!-- C# -->
+                    <div class="skill-tech-card hidden" data-skill="csharp" data-category="backend">
+                        <div class="tech-logo">C#</div>
+                        <span class="tech-name">C#</span>
+                    </div>
+                    <!-- Blip -->
+                    <div class="skill-tech-card hidden" data-skill="blip" data-category="tools">
+                        <div class="tech-logo">B</div>
+                        <span class="tech-name">Blip</span>
+                    </div>
+                    <!-- Chatbots -->
+                    <div class="skill-tech-card hidden" data-skill="chatbots" data-category="tools">
+                        <div class="tech-logo">🤖</div>
+                        <span class="tech-name">Chatbots</span>
+                    </div>
+                </div>
+                <button class="show-more-btn" id="show-more-skills">
+                    Mostrar mais
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="6 9 12 15 18 9"/>
                     </svg>
-                    andrewilckaylageoliveira@gmail.com
-                </a>
-                <a href="tel:+5511910621642" class="contact-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                    </svg>
-                    (11) 91062-1642
-                </a>
-                <a href="https://www.linkedin.com/in/andr%C3%A9-wilckay-lage-oliveira-200874383/" target="_blank" class="contact-link">
-                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                    </svg>
-                    LinkedIn
-                </a>
-                <a href="https://github.com/awlogod" target="_blank" class="contact-link">
+                </button>
+            </div>
+
+            <!-- Card Expandido com Detalhes -->
+            <div class="skill-detail-card" id="skill-detail-card">
+                <div class="skill-detail-header">
+                    <div class="skill-detail-title-section">
+                        <div class="skill-detail-logo" id="detail-logo">JS</div>
+                        <h3 class="skill-detail-name" id="detail-name">JavaScript</h3>
+                    </div>
+                    <span class="skill-detail-experience" id="detail-experience">Desde 2022 ~ 3 anos</span>
+                </div>
+                <p class="skill-detail-description" id="detail-description">
+                    Utilizo JavaScript para construir aplicações web dinâmicas, interativas e modernas. 
+                    Desenvolvo tanto no frontend quanto no backend, criando soluções completas e escaláveis.
+                </p>
+                <div class="skill-detail-knowledges" id="detail-knowledges">
+                    <div class="knowledges-column">
+                        <div class="knowledge-item">• Desenvolvimento frontend e backend</div>
+                        <div class="knowledge-item">• Manipulação do DOM e eventos</div>
+                        <div class="knowledge-item">• Async/await e Promises</div>
+                    </div>
+                    <div class="knowledges-column">
+                        <div class="knowledge-item">• ES6+ e recursos modernos</div>
+                        <div class="knowledge-item">• Integração com APIs REST</div>
+                        <div class="knowledge-item">• Desenvolvimento de chatbots</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projetos -->
+    <section id="projetos" class="section projects-section">
+        <div class="container">
+            <div class="projects-header">
+                <p class="projects-label">PROJETOS</p>
+                <div class="projects-label-line"></div>
+                <h2 class="projects-title">Meus Projetos</h2>
+                <p class="projects-subtitle">
+                    Uma seleção dos projetos que desenvolvi, demonstrando minhas habilidades e experiência prática.
+                </p>
+            </div>
+            <div class="projects-grid">
+                <!-- Projeto 1 - Plataforma Nsend -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="images/projetos/plataforma-nsend.png" alt="Plataforma Nsend" class="project-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="project-placeholder" style="display: none;">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="9" y1="3" x2="9" y2="21"/>
+                            </svg>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://plataformansend.discloud.app/" target="_blank" class="project-link" title="Ver Demo">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                            </a>
+                            <a href="https://github.com/awlogod/plataforma-nsend" target="_blank" class="project-link" title="Ver Código">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-name">Plataforma Nsend</h3>
+                        <p class="project-description">
+                            Plataforma completa desenvolvida para a Nsend, oferecendo soluções inovadoras com interface moderna e funcionalidades robustas.
+                        </p>
+                        <div class="project-techs">
+                            <span class="tech-tag">HTML</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">Node.js</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 2 - Plataforma Estilo Hotmart -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="images/projetos/plataforma-hotmart.png" alt="Plataforma Estilo Hotmart" class="project-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="project-placeholder" style="display: none;">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="9" y1="3" x2="9" y2="21"/>
+                            </svg>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="#" target="_blank" class="project-link" title="Ver Demo">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                            </a>
+                            <a href="https://github.com/awlogod/plataforma-estilo-hotmart" target="_blank" class="project-link" title="Ver Código">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-name">Plataforma Estilo Hotmart</h3>
+                        <p class="project-description">
+                            Plataforma web completa para visualização e compra de cursos online, inspirada na Hotmart. Desenvolvida com React, incluindo carrinho de compras, autenticação e área do aluno.
+                        </p>
+                        <div class="project-techs">
+                            <span class="tech-tag">JavaScript</span>
+                            <span class="tech-tag">JWT</span>
+                            <span class="tech-tag">CSS</span>
+                            <span class="tech-tag">React</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projeto 3 - Avalia Puc -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="images/projetos/avalia-puc.png" alt="Avalia Puc" class="project-img" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="project-placeholder" style="display: none;">
+                            <svg width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="9" y1="3" x2="9" y2="21"/>
+                            </svg>
+                        </div>
+                        <div class="project-overlay">
+                            <a href="https://avaliapuc.discloud.app/" target="_blank" class="project-link" title="Ver Demo">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                            </a>
+                            <a href="https://github.com/awlogod/site-media-pucc" target="_blank" class="project-link" title="Ver Código">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-name">Avalia Puc</h3>
+                        <p class="project-description">
+                            Calculadora web para gerenciar notas e calcular médias por matéria dos alunos do curso de Engenharia de Computação da PUC Campinas. Interface moderna e responsiva com fórmulas específicas para cada disciplina.
+                        </p>
+                        <div class="project-techs">
+                            <span class="tech-tag">HTML5</span>
+                            <span class="tech-tag">CSS3</span>
+                            <span class="tech-tag">JavaScript</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="projects-footer">
+                <a href="https://github.com/awlogod" target="_blank" class="btn-all-projects">
                     <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
                     </svg>
-                    GitHub
+                    Conheça todos meus projetos
                 </a>
             </div>
-        </header>
+        </div>
+    </section>
 
-        <!-- Main Content -->
-        <main class="main-content">
-            <!-- Sobre -->
-            <section class="section">
-                <h2 class="section-title">Sobre</h2>
-                <p class="section-content">
-                    Desenvolvedor Full-Stack apaixonado por transformar ideias em soluções tecnológicas inovadoras. 
-                    Atualmente sou sócio-fundador e desenvolvedor na <strong>Nsend</strong>, onde atuo no desenvolvimento 
-                    de chatbots para WhatsApp, Instagram e outras plataformas de mensageria. Estudante de Engenharia de 
-                    Computação na PUC-Campinas, sempre em busca de novos desafios e oportunidades de crescimento. 
-                    Combinando conhecimento técnico sólido com visão empreendedora para criar produtos que fazem a diferença.
+    <!-- Estatísticas do GitHub -->
+    <section id="github-stats" class="section github-stats-section">
+        <div class="container">
+            <div class="github-stats-header">
+                <p class="github-stats-label">GITHUB</p>
+                <div class="github-stats-label-line"></div>
+                <h2 class="github-stats-title">Minhas Estatísticas</h2>
+                <p class="github-stats-subtitle">
+                    Acompanhe minha atividade e contribuições no GitHub.
                 </p>
-            </section>
+            </div>
+            <div class="github-stats-grid">
+                <div class="github-stat-card fade-in">
+                    <div class="stat-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number" id="repo-count">-</div>
+                    <div class="stat-label">Repositórios</div>
+                </div>
+                <div class="github-stat-card fade-in">
+                    <div class="stat-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"/>
+                            <polyline points="12 6 12 12 16 14"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number" id="contrib-count">-</div>
+                    <div class="stat-label">Contribuições</div>
+                </div>
+                <div class="github-stat-card fade-in">
+                    <div class="stat-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                            <circle cx="9" cy="7" r="4"/>
+                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number" id="followers-count">-</div>
+                    <div class="stat-label">Seguidores</div>
+                </div>
+                <div class="github-stat-card fade-in">
+                    <div class="stat-icon">
+                        <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/>
+                        </svg>
+                    </div>
+                    <div class="stat-number" id="stars-count">-</div>
+                    <div class="stat-label">Stars</div>
+                </div>
+            </div>
+            <div class="github-languages fade-in" id="github-languages">
+                <h3 class="languages-title-small">Linguagens Mais Usadas</h3>
+                <div class="languages-bars" id="languages-bars">
+                    <!-- Será preenchido via JavaScript -->
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <!-- Experiência Profissional -->
-            <section class="section">
-                <h2 class="section-title">Experiência Profissional</h2>
-                <div class="timeline">
-                    <div class="timeline-item">
-                        <div class="timeline-marker"></div>
-                        <div class="timeline-content">
-                            <h3 class="job-title">Desenvolvedor & Sócio-Fundador</h3>
-                            <p class="company">Nsend</p>
-                            <p class="period">Atual</p>
-                            <ul class="job-description">
-                                <li>Desenvolvimento de chatbots inteligentes para WhatsApp, Instagram e outras plataformas de mensageria</li>
-                                <li>Arquitetura e implementação de soluções backend robustas utilizando APIs e Node.js</li>
-                                <li>Desenvolvimento de fluxos conversacionais na plataforma Nsend para automação de atendimento</li>
-                                <li>Gestão técnica e estratégica da empresa, liderando projetos de inovação</li>
-                                <li>Criação de sistemas escaláveis que melhoram a experiência do cliente e otimizam processos</li>
-                            </ul>
+    <!-- O que estou aprendendo -->
+    <section id="aprendendo" class="section learning-section">
+        <div class="container">
+            <div class="learning-header">
+                <p class="learning-label">APRENDENDO</p>
+                <div class="learning-label-line"></div>
+                <h2 class="learning-title">O que estou aprendendo</h2>
+                <p class="learning-subtitle">
+                    Sempre em busca de conhecimento. Aqui estão as tecnologias e conceitos que estou estudando atualmente.
+                </p>
+            </div>
+            <div class="learning-grid">
+                <div class="learning-card fade-in">
+                    <div class="learning-icon">🚀</div>
+                    <h3 class="learning-name">Docker & Kubernetes</h3>
+                    <p class="learning-description">Containerização e orquestração de aplicações</p>
+                    <div class="learning-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 60%"></div>
                         </div>
+                        <span class="progress-text">60%</span>
                     </div>
                 </div>
-            </section>
+                <div class="learning-card fade-in">
+                    <div class="learning-icon">⚡</div>
+                    <h3 class="learning-name">GraphQL</h3>
+                    <p class="learning-description">Query language para APIs mais eficientes</p>
+                    <div class="learning-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 45%"></div>
+                        </div>
+                        <span class="progress-text">45%</span>
+                    </div>
+                </div>
+                <div class="learning-card fade-in">
+                    <div class="learning-icon">🎨</div>
+                    <h3 class="learning-name">Design Systems</h3>
+                    <p class="learning-description">Criando sistemas de design escaláveis</p>
+                    <div class="learning-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 70%"></div>
+                        </div>
+                        <span class="progress-text">70%</span>
+                    </div>
+                </div>
+                <div class="learning-card fade-in">
+                    <div class="learning-icon">🔐</div>
+                    <h3 class="learning-name">Segurança Web</h3>
+                    <p class="learning-description">Melhores práticas de segurança em aplicações</p>
+                    <div class="learning-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 55%"></div>
+                        </div>
+                        <span class="progress-text">55%</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-            <!-- Educação -->
-            <section class="section">
-                <h2 class="section-title">Educação</h2>
-                <div class="education-item">
-                    <h3 class="degree">Engenharia de Computação</h3>
-                    <p class="institution">Pontifícia Universidade Católica de Campinas (PUC-Campinas)</p>
-                    <p class="period">Em andamento</p>
+    <!-- Diplomas -->
+    <section id="diplomas" class="section diplomas-section">
+        <div class="container">
+            <div class="diplomas-header">
+                <p class="diplomas-label">DIPLOMAS</p>
+                <div class="diplomas-label-line"></div>
+                <h2 class="diplomas-title">Meus Certificados</h2>
+                <p class="diplomas-subtitle">
+                    Aqui estão todos os cursos e certificações que completei ao longo da minha jornada de aprendizado.
+                </p>
+            </div>
+            <div class="diplomas-grid">
+                <!-- JavaScript -->
+                <div class="diploma-card">
+                    <div class="diploma-icon">JS</div>
+                    <h3 class="diploma-name">Curso Completo de JavaScript</h3>
+                    <p class="diploma-platform">Plataforma Online</p>
+                    <button class="diploma-cert-btn" data-certificate="javascript" data-title="Curso Completo de JavaScript">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        Ver Certificado
+                    </button>
                 </div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <h3 class="degree">Curso Completo de JavaScript</h3>
-                            <p class="institution">Curso em Vídeo</p>
-                        </div>
-                        <button class="certificate-btn" data-certificate="images/certificados/javascript.jpg" data-title="Curso Completo de JavaScript - Curso em Vídeo">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                            <span>Ver Certificado</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <h3 class="degree">Curso Completo de HTML e CSS</h3>
-                            <p class="institution">Alura</p>
-                        </div>
-                        <button class="certificate-btn" data-certificate="images/certificados/html-css.jpg" data-title="Curso Completo de HTML e CSS - Alura">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                            <span>Ver Certificado</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <h3 class="degree">Curso Completo de Java</h3>
-                            <p class="institution">Alura</p>
-                        </div>
-                        <button class="certificate-btn" data-certificate="images/certificados/java.jpg" data-title="Curso Completo de Java - Alura">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                            <span>Ver Certificado</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <h3 class="degree">Curso Completo de TypeScript</h3>
-                            <p class="institution">Alura</p>
-                        </div>
-                        <button class="certificate-btn" data-certificate="images/certificados/typescript.jpg" data-title="Curso Completo de TypeScript - Alura">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                            <span>Ver Certificado</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <h3 class="degree">React</h3>
-                            <p class="institution">Alura</p>
-                        </div>
-                        <button class="certificate-btn" data-certificate="images/certificados/react.jpg" data-title="React - Alura">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                            <span>Ver Certificado</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <h3 class="degree">Curso Completo de APIs</h3>
-                            <p class="institution">Alura</p>
-                        </div>
-                        <button class="certificate-btn" data-certificate="images/certificados/apis.jpg" data-title="Curso Completo de APIs - Alura">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                            <span>Ver Certificado</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <h3 class="degree">Curso Completo de C</h3>
-                            <p class="institution">Pontifícia Universidade Católica de Campinas (PUC-Campinas)</p>
-                        </div>
-                        <button class="certificate-btn" data-certificate="images/certificados/c.jpg" data-title="Curso Completo de C - PUC-Campinas">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                            <span>Ver Certificado</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <h3 class="degree">Curso Completo de C++</h3>
-                            <p class="institution">Pontifícia Universidade Católica de Campinas (PUC-Campinas)</p>
-                        </div>
-                        <button class="certificate-btn" data-certificate="images/certificados/cpp.jpg" data-title="Curso Completo de C++ - PUC-Campinas">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                            <span>Ver Certificado</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <h3 class="degree">Curso Completo de C#</h3>
-                            <p class="institution">Alura</p>
-                        </div>
-                        <button class="certificate-btn" data-certificate="images/certificados/csharp.jpg" data-title="Curso Completo de C# - Alura">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                            <span>Ver Certificado</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <h3 class="degree">Curso Completo de Node.js</h3>
-                            <p class="institution">Curso em Vídeo</p>
-                        </div>
-                        <button class="certificate-btn" data-certificate="images/certificados/nodejs.jpg" data-title="Curso Completo de Node.js - Curso em Vídeo">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                            <span>Ver Certificado</span>
-                        </button>
-                    </div>
-                </div>
-                <div class="education-item">
-                    <div class="education-header">
-                        <div>
-                            <h3 class="degree">Curso Completo de GitHub</h3>
-                            <p class="institution">Alura</p>
-                        </div>
-                        <button class="certificate-btn" data-certificate="images/certificados/github.jpg" data-title="Curso Completo de GitHub - Alura">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path>
-                                <polyline points="14 2 14 8 20 8"></polyline>
-                                <line x1="16" y1="13" x2="8" y2="13"></line>
-                                <line x1="16" y1="17" x2="8" y2="17"></line>
-                                <polyline points="10 9 9 9 8 9"></polyline>
-                            </svg>
-                            <span>Ver Certificado</span>
-                        </button>
-                    </div>
-                </div>
-            </section>
 
-            <!-- Habilidades -->
-            <section class="section">
-                <h2 class="section-title">Habilidades</h2>
-                <div class="skills-grid">
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">Linguagens de Programação</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">JavaScript</span>
-                            <span class="skill-tag">TypeScript</span>
-                            <span class="skill-tag">Java</span>
-                            <span class="skill-tag">C</span>
-                            <span class="skill-tag">C++</span>
-                            <span class="skill-tag">C#</span>
-                            <span class="skill-tag">HTML5</span>
-                            <span class="skill-tag">CSS3</span>
-                        </div>
+                <!-- HTML/CSS -->
+                <div class="diploma-card">
+                    <div class="diploma-icon">◉</div>
+                    <h3 class="diploma-name">Curso Completo de HTML e CSS</h3>
+                    <p class="diploma-platform">Alura</p>
+                    <button class="diploma-cert-btn" data-certificate="html-css" data-title="Curso Completo de HTML e CSS - Alura">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        Ver Certificado
+                    </button>
+                </div>
+
+                <!-- Java -->
+                <div class="diploma-card">
+                    <div class="diploma-icon">J</div>
+                    <h3 class="diploma-name">Curso Completo de Java</h3>
+                    <p class="diploma-platform">Plataforma Online</p>
+                    <button class="diploma-cert-btn" data-certificate="java" data-title="Curso Completo de Java">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        Ver Certificado
+                    </button>
+                </div>
+
+                <!-- TypeScript -->
+                <div class="diploma-card">
+                    <div class="diploma-icon">TS</div>
+                    <h3 class="diploma-name">Curso Completo de TypeScript</h3>
+                    <p class="diploma-platform">Plataforma Online</p>
+                    <button class="diploma-cert-btn" data-certificate="typescript" data-title="Curso Completo de TypeScript">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        Ver Certificado
+                    </button>
+                </div>
+
+                <!-- React -->
+                <div class="diploma-card">
+                    <div class="diploma-icon">⚛</div>
+                    <h3 class="diploma-name">React</h3>
+                    <p class="diploma-platform">Plataforma Online</p>
+                    <button class="diploma-cert-btn" data-certificate="react" data-title="Curso de React">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        Ver Certificado
+                    </button>
+                </div>
+
+                <!-- APIs -->
+                <div class="diploma-card">
+                    <div class="diploma-icon">API</div>
+                    <h3 class="diploma-name">Curso Completo de APIs</h3>
+                    <p class="diploma-platform">Alura</p>
+                    <button class="diploma-cert-btn" data-certificate="apis" data-title="Curso Completo de APIs - Alura">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        Ver Certificado
+                    </button>
+                </div>
+
+                <!-- C -->
+                <div class="diploma-card">
+                    <div class="diploma-icon">C</div>
+                    <h3 class="diploma-name">Curso Completo de C</h3>
+                    <p class="diploma-platform">PUC-Campinas</p>
+                    <button class="diploma-cert-btn" data-certificate="c" data-title="Curso Completo de C - PUC-Campinas">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        Ver Certificado
+                    </button>
+                </div>
+
+                <!-- C++ -->
+                <div class="diploma-card">
+                    <div class="diploma-icon">C++</div>
+                    <h3 class="diploma-name">Curso Completo de C++</h3>
+                    <p class="diploma-platform">PUC-Campinas</p>
+                    <button class="diploma-cert-btn" data-certificate="cpp" data-title="Curso Completo de C++ - PUC-Campinas">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        Ver Certificado
+                    </button>
+                </div>
+
+                <!-- C# -->
+                <div class="diploma-card">
+                    <div class="diploma-icon">C#</div>
+                    <h3 class="diploma-name">Curso Completo de C#</h3>
+                    <p class="diploma-platform">Alura</p>
+                    <button class="diploma-cert-btn" data-certificate="csharp" data-title="Curso Completo de C# - Alura">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        Ver Certificado
+                    </button>
+                </div>
+
+                <!-- Node.js -->
+                <div class="diploma-card">
+                    <div class="diploma-icon">N</div>
+                    <h3 class="diploma-name">Curso Completo de Node.js</h3>
+                    <p class="diploma-platform">Curso em Vídeo</p>
+                    <button class="diploma-cert-btn" data-certificate="nodejs" data-title="Curso Completo de Node.js - Curso em Vídeo">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        Ver Certificado
+                    </button>
+                </div>
+
+                <!-- GitHub -->
+                <div class="diploma-card">
+                    <div class="diploma-icon">G</div>
+                    <h3 class="diploma-name">Curso Completo de GitHub</h3>
+                    <p class="diploma-platform">Alura</p>
+                    <button class="diploma-cert-btn" data-certificate="github" data-title="Curso Completo de GitHub - Alura">
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                        Ver Certificado
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Idiomas -->
+    <section class="section languages-section">
+        <div class="container">
+            <div class="languages-header">
+                <p class="languages-label">IDIOMAS</p>
+                <div class="languages-label-line"></div>
+                <h2 class="languages-title">Meus Idiomas</h2>
+                <p class="languages-subtitle">
+                    Comunicação é essencial. Aqui estão os idiomas que domino.
+                </p>
+            </div>
+            <div class="languages-grid">
+                <div class="language-item">
+                    <span class="language-name">Português</span>
+                    <span class="language-level">Nativo</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Inglês</span>
+                    <span class="language-level">Fluente</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Francês</span>
+                    <span class="language-level">Iniciante</span>
+                </div>
+                <div class="language-item">
+                    <span class="language-name">Espanhol</span>
+                    <span class="language-level">Iniciante</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Depoimentos -->
+    <section id="depoimentos" class="section testimonials-section">
+        <div class="container">
+            <div class="testimonials-header">
+                <p class="testimonials-label">DEPOIMENTOS</p>
+                <div class="testimonials-label-line"></div>
+                <h2 class="testimonials-title">O que dizem sobre mim</h2>
+                <p class="testimonials-subtitle">
+                    Feedback de clientes, colegas e parceiros de trabalho.
+                </p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 6v1c0 1 0 1 1 1z"/>
+                        </svg>
+                        <p class="testimonial-text">
+                            "Trabalhar com André foi uma experiência excelente. Sua dedicação e conhecimento técnico foram fundamentais para o sucesso do projeto."
+                        </p>
                     </div>
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">Tecnologias & Ferramentas</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Node.js</span>
-                            <span class="skill-tag">React</span>
-                            <span class="skill-tag">API Development</span>
-                            <span class="skill-tag">Plataforma Blip</span>
-                            <span class="skill-tag">Git & GitHub</span>
-                            <span class="skill-tag">Backend Development</span>
-                            <span class="skill-tag">Frontend Development</span>
-                            <span class="skill-tag">Chatbot Development</span>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
                         </div>
-                    </div>
-                    <div class="skill-category">
-                        <h3 class="skill-category-title">Soft Skills</h3>
-                        <div class="skill-tags">
-                            <span class="skill-tag">Liderança</span>
-                            <span class="skill-tag">Empreendedorismo</span>
-                            <span class="skill-tag">Resolução de Problemas</span>
-                            <span class="skill-tag">Trabalho em Equipe</span>
-                            <span class="skill-tag">Comunicação</span>
-                            <span class="skill-tag">Pensamento Estratégico</span>
-                            <span class="skill-tag">Inovação</span>
-                            <span class="skill-tag">Gestão de Projetos</span>
+                        <div class="author-info">
+                            <h4 class="author-name">FACEV</h4>
+                            <p class="author-role">Equipe de Vendas</p>
                         </div>
                     </div>
                 </div>
-            </section>
 
-            <!-- Idiomas -->
-            <section class="section">
-                <h2 class="section-title">Idiomas</h2>
-                <div class="languages">
-                    <div class="language-item">
-                        <span class="language-name">Português</span>
-                        <span class="language-level">Nativo</span>
+                <div class="testimonial-card fade-in">
+                    <div class="testimonial-content">
+                        <svg class="quote-icon" width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M3 21c3 0 7-1 7-8V5c0-1.25-.756-2.017-2-2H4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2 1 0 1 0 1 1v1c0 1-1 2-2 2s-1 .008-1 1.031V20c0 1 0 1 1 1z"/>
+                            <path d="M15 21c3 0 7-1 7-8V5c0-1.25-.757-2.017-2-2h-4c-1.25 0-2 .75-2 1.972V11c0 1.25.75 2 2 2h.75c0 2.25.25 4-2.75 6v1c0 1 0 1 1 1z"/>
+                        </svg>
+                        <p class="testimonial-text">
+                            "Profissional extremamente competente e proativo. Sempre entrega soluções de alta qualidade e está sempre disposto a ajudar a equipe."
+                        </p>
                     </div>
-                    <div class="language-item">
-                        <span class="language-name">Inglês</span>
-                        <span class="language-level">Fluente</span>
-                    </div>
-                    <div class="language-item">
-                        <span class="language-name">Francês</span>
-                        <span class="language-level">Iniciante</span>
-                    </div>
-                    <div class="language-item">
-                        <span class="language-name">Espanhol</span>
-                        <span class="language-level">Iniciante</span>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                        </div>
+                        <div class="author-info">
+                            <h4 class="author-name">Colega de Trabalho</h4>
+                            <p class="author-role">Desenvolvedor Sênior</p>
+                        </div>
                     </div>
                 </div>
-            </section>
-        </main>
+            </div>
+        </div>
+    </section>
 
-        <!-- Footer -->
-        <footer class="footer">
+    <!-- Contato -->
+    <section id="contato" class="section contact">
+        <div class="container">
+            <div class="contact-header">
+                <p class="contact-label">CONTATO</p>
+                <div class="contact-label-line"></div>
+                <h2 class="contact-title">Entre em Contato</h2>
+                <p class="contact-subtitle">
+                    Se você tem um projeto em mente, precisa de assistência ou apenas quer dizer olá, sinta-se à vontade para entrar em contato!
+                </p>
+            </div>
+            <div class="contact-wrapper">
+                <div class="contact-info">
+                    <div class="contact-grid">
+                        <a href="mailto:andrewilckaylageoliveira@gmail.com" class="contact-card">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <h3>Email</h3>
+                            <p>andrewilckaylageoliveira@gmail.com</p>
+                            <span class="contact-action">Copiar</span>
+                        </a>
+                        <a href="tel:+5511910621642" class="contact-card">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <h3>Telefone</h3>
+                            <p>(11) 91062-1642</p>
+                            <span class="contact-action">Ligar</span>
+                        </a>
+                        <a href="https://www.linkedin.com/in/andr%C3%A9-wilckay-lage-oliveira-200874383/" target="_blank" class="contact-card">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                            <h3>LinkedIn</h3>
+                            <p>Conectar</p>
+                            <span class="contact-action">Abrir</span>
+                        </a>
+                        <a href="https://github.com/awlogod" target="_blank" class="contact-card">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                            </svg>
+                            <h3>GitHub</h3>
+                            <p>Ver projetos</p>
+                            <span class="contact-action">Abrir</span>
+                        </a>
+                    </div>
+                    <div class="contact-download">
+                        <a href="curriculo.html" target="_blank" class="btn-download-cv" onclick="window.open('curriculo.html', '_blank'); return false;">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            Baixar Currículo PDF
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contact-form">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">
+                            <span>Enviar Mensagem</span>
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <line x1="22" y1="2" x2="11" y2="13"/>
+                                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+                            </svg>
+                        </button>
+                        <div class="form-message" id="form-message"></div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
             <p>&copy; <span id="current-year"></span> André Wilckay Lage Oliveira. Todos os direitos reservados.</p>
-        </footer>
-    </div>
+            <p class="footer-subtitle">Feito com ❤️, código e bots</p>
+        </div>
+    </footer>
 
     <!-- Modal de Certificado -->
     <div id="certificate-modal" class="certificate-modal">
@@ -390,7 +1108,8 @@
         </div>
     </div>
 
+    <!-- Biblioteca para gerar PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
     <script src="script.js"></script>
 </body>
 </html>
-
