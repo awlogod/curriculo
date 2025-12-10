@@ -438,6 +438,126 @@ document.addEventListener('DOMContentLoaded', function() {
                 'Análise de conversas',
                 'Otimização de fluxos'
             ]
+        },
+        comunicacao: {
+            name: 'Comunicação',
+            logo: '💬',
+            category: 'soft',
+            experience: 'Desde sempre',
+            description: 'Comunico ideias técnicas de forma clara e eficaz, tanto com equipes técnicas quanto com stakeholders não técnicos. Facilito reuniões, apresentações e documentação de projetos.',
+            knowledges: [
+                'Comunicação verbal e escrita',
+                'Apresentações técnicas',
+                'Documentação de projetos',
+                'Feedback construtivo',
+                'Comunicação intercultural',
+                'Mediação de conflitos'
+            ]
+        },
+        'trabalho-equipe': {
+            name: 'Trabalho em Equipe',
+            logo: '👥',
+            category: 'soft',
+            experience: 'Desde sempre',
+            description: 'Colaboro efetivamente em equipes multidisciplinares, contribuindo com minhas habilidades técnicas enquanto aprendo com outros profissionais. Valorizo a diversidade de pensamento e o trabalho colaborativo.',
+            knowledges: [
+                'Colaboração em projetos',
+                'Code review e pair programming',
+                'Compartilhamento de conhecimento',
+                'Respeito à diversidade',
+                'Suporte a colegas',
+                'Metodologias ágeis'
+            ]
+        },
+        'resolucao-problemas': {
+            name: 'Resolução de Problemas',
+            logo: '🔧',
+            category: 'soft',
+            experience: 'Desde sempre',
+            description: 'Abordo problemas complexos de forma sistemática, analisando causas raiz, avaliando múltiplas soluções e implementando a melhor abordagem. Mantenho a calma sob pressão e aprendo com cada desafio.',
+            knowledges: [
+                'Análise de problemas complexos',
+                'Pensamento algorítmico',
+                'Debugging e troubleshooting',
+                'Pesquisa e aprendizado contínuo',
+                'Tomada de decisão',
+                'Resiliência e persistência'
+            ]
+        },
+        lideranca: {
+            name: 'Liderança',
+            logo: '🎯',
+            category: 'soft',
+            experience: 'Desde 2023',
+            description: 'Lidero projetos e equipes na Nsend, tomando decisões estratégicas, motivando colegas e garantindo a entrega de resultados de alta qualidade. Inspiro através do exemplo e do conhecimento técnico.',
+            knowledges: [
+                'Liderança técnica',
+                'Mentoria e desenvolvimento de equipe',
+                'Tomada de decisões estratégicas',
+                'Gestão de projetos',
+                'Delegação eficaz',
+                'Visão de produto'
+            ]
+        },
+        adaptabilidade: {
+            name: 'Adaptabilidade',
+            logo: '🔄',
+            category: 'soft',
+            experience: 'Desde sempre',
+            description: 'Adapto-me rapidamente a novas tecnologias, metodologias e contextos de trabalho. Mantenho-me atualizado com as tendências do mercado e estou sempre aberto a aprender e evoluir.',
+            knowledges: [
+                'Aprendizado contínuo',
+                'Flexibilidade em mudanças',
+                'Adaptação a novas tecnologias',
+                'Trabalho em ambientes dinâmicos',
+                'Abertura a feedback',
+                'Resiliência a mudanças'
+            ]
+        },
+        'pensamento-critico': {
+            name: 'Pensamento Crítico',
+            logo: '🧠',
+            category: 'soft',
+            experience: 'Desde sempre',
+            description: 'Analiso informações de forma crítica, questionando premissas e avaliando evidências antes de tomar decisões. Aplico lógica e raciocínio para resolver problemas de forma eficiente.',
+            knowledges: [
+                'Análise crítica de informações',
+                'Avaliação de soluções',
+                'Raciocínio lógico',
+                'Questionamento de premissas',
+                'Tomada de decisões baseada em dados',
+                'Solução de problemas complexos'
+            ]
+        },
+        'gestao-tempo': {
+            name: 'Gestão de Tempo',
+            logo: '⏰',
+            category: 'soft',
+            experience: 'Desde sempre',
+            description: 'Gerencio meu tempo de forma eficiente, priorizando tarefas importantes, cumprindo prazos e mantendo um equilíbrio saudável entre trabalho e vida pessoal. Uso metodologias como Pomodoro e planejamento semanal.',
+            knowledges: [
+                'Priorização de tarefas',
+                'Cumprimento de prazos',
+                'Planejamento e organização',
+                'Técnicas de produtividade',
+                'Balanceamento de múltiplos projetos',
+                'Prevenção de burnout'
+            ]
+        },
+        criatividade: {
+            name: 'Criatividade',
+            logo: '✨',
+            category: 'soft',
+            experience: 'Desde sempre',
+            description: 'Aplico criatividade no desenvolvimento de soluções inovadoras, pensando fora da caixa e encontrando abordagens únicas para desafios técnicos. Combino conhecimento técnico com imaginação para criar produtos diferenciados.',
+            knowledges: [
+                'Inovação em soluções',
+                'Design thinking',
+                'Brainstorming e ideação',
+                'Abordagens criativas para problemas',
+                'Experimentação',
+                'Visão de produto inovador'
+            ]
         }
     };
 
@@ -525,12 +645,11 @@ document.addEventListener('DOMContentLoaded', function() {
                 skillName.includes(searchTerm) ||
                 category.includes(searchTerm);
 
-            if (matchesFilter && matchesSearch) {
-                if (showAllSkills || !card.classList.contains('hidden')) {
-                    card.style.display = 'flex';
-                } else {
-                    card.style.display = 'none';
-                }
+            const isHidden = card.classList.contains('hidden');
+            const shouldShow = matchesFilter && matchesSearch && (showAllSkills || !isHidden);
+
+            if (shouldShow) {
+                card.style.display = 'flex';
             } else {
                 card.style.display = 'none';
             }
@@ -544,18 +663,28 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Mostrar mais habilidades
     if (showMoreBtn) {
-        showMoreBtn.addEventListener('click', function() {
-            showAllSkills = !showAllSkills;
-            const hiddenCards = document.querySelectorAll('.skill-tech-card.hidden');
+        // Armazenar quais cards devem estar ocultos por padrão
+        const defaultHiddenCards = document.querySelectorAll('.skill-tech-card.hidden');
+        const hiddenCardIds = Array.from(defaultHiddenCards).map(card => card.getAttribute('data-skill'));
+        
+        showMoreBtn.addEventListener('click', function(e) {
+            e.preventDefault();
+            e.stopPropagation();
             
-            hiddenCards.forEach(card => {
-                if (showAllSkills) {
-                    card.classList.remove('hidden');
-                    card.style.display = 'flex';
-                } else {
-                    card.classList.add('hidden');
-                    if (!card.classList.contains('active')) {
-                        card.style.display = 'none';
+            showAllSkills = !showAllSkills;
+            const allCards = document.querySelectorAll('.skill-tech-card');
+            
+            allCards.forEach(card => {
+                const skillId = card.getAttribute('data-skill');
+                const shouldBeHidden = hiddenCardIds.includes(skillId);
+                
+                if (shouldBeHidden) {
+                    if (showAllSkills) {
+                        // Mostrar cards que estavam ocultos
+                        card.classList.remove('hidden');
+                    } else {
+                        // Ocultar cards novamente
+                        card.classList.add('hidden');
                     }
                 }
             });
@@ -564,6 +693,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 ? `Mostrar menos <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="18 15 12 9 6 15"/></svg>`
                 : `Mostrar mais <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"/></svg>`;
             
+            // Reaplicar filtros após mostrar/ocultar
             filterSkills();
         });
     }

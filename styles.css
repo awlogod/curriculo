@@ -1132,6 +1132,15 @@ body.light-theme .theme-icon.moon-icon {
     display: flex;
     align-items: center;
     justify-content: center;
+    color: var(--teal);
+}
+
+.tech-logo svg {
+    width: 32px;
+    height: 32px;
+    stroke: currentColor;
+    fill: none;
+}
     background: rgba(6, 182, 212, 0.2);
     border-radius: 8px;
     font-weight: 700;
@@ -1703,6 +1712,16 @@ body.light-theme .theme-icon.moon-icon {
 .learning-icon {
     font-size: 3rem;
     margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--teal);
+}
+
+.learning-icon svg {
+    width: 48px;
+    height: 48px;
+    stroke: currentColor;
 }
 
 .learning-name {
@@ -2786,6 +2805,14 @@ body.light-theme .learning-description,
 body.light-theme .diploma-platform,
 body.light-theme .language-level {
     color: var(--text-secondary);
+}
+
+body.light-theme .learning-icon {
+    color: var(--teal) !important;
+}
+
+body.light-theme .learning-icon svg {
+    stroke: var(--teal) !important;
 }
 
 body.light-theme .form-group input,
